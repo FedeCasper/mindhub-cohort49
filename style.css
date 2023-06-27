@@ -1,0 +1,14 @@
+.contenedor{
+     height: 100vh;
+}
+header{
+     height: 10vh;
+}
+footer{
+     height: 10vh;
+}
+
+.btn-outline-success{
+     color: blueviolet ;
+     border-color: blueviolet ;
+}
