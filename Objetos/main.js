@@ -111,9 +111,6 @@ const copiaNumeros = [].concat( numerosParesImpares )
 copiaPares.push(12)
 
 
-numerosParesImpares.sort() 
-console.log( numerosParesImpares )
-
 console.log( numerosPares, copiaPares )
 console.log( copiaPares == numerosPares )
 
