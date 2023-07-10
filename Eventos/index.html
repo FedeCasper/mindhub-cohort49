@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Eventos JS</title>
+</head>
+<body>
+    <div class="container-fluid d-flex  flex-column align-items-center gap-3 border-bottom pb-4 bg-secondary" id="contenedor">
+        <h1 class="text-light mt-2">Eventos</h1>
+        <button class="btn bg-primary text-light" id="boton">Click</button>
+        <form action="" id="form" class="d-flex flex-column gap-4 border bordeer-light p-3 ">
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Apellido">
+            <input type="submit" value="Enviar" class="btn bg-primary text-light">
+        </form>
+        <input type="text" placeholder="Search..." id="search">
+        <div id="contenedorInputs"></div>
+        <div id="tarjetasMentores"></div>
+        <ul id="lista"></ul>
+   
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
