@@ -1,0 +1,12 @@
+.contenedor{
+    height: 100vh;
+}
+
+article {
+    width: 18rem;
+}
+
+.imgCard{
+    height: 10rem;
+    object-fit: cover;
+}
