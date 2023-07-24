@@ -8,9 +8,12 @@ const options = {
             valorBusqueda : "",
             casasChecked : [],
             filtrados : [],
+            favoritos : [],
         }
     },
     created(){
+        this.favoritos = JSON.parse( localStorage.getItem('favoritos') ) ?? []
+
         fetch( 'https://hp-api.onrender.com/api/characters/students' )
             .then( response => response.json() )
             .then( datos => {
@@ -20,9 +23,20 @@ const options = {
                 this.casas = [...new Set(personajesConCasa.map( personaje => personaje.house ))]
             })
             .catch( err => console.log( err ) )
+        console.log(this.favoritos)
     },
     methods:{
-       
+        handleClick( personaje, accion ){
+            // Averiguar si tiene que agregar o remover el personaje de favoritos
+            if( accion == 'agregar' ){
+                // Agrega
+                this.favoritos.push( personaje )
+            }else{
+                // Remover
+                this.favoritos = this.favoritos.filter( fav => fav.id != personaje.id )
+            }
+            localStorage.setItem('favoritos', JSON.stringify( this.favoritos ) )
+        }
     },
     computed:{
         filtrar(){
@@ -37,4 +51,3 @@ const options = {
 const app = createApp( options )
 
 app.mount( '#app' )
-

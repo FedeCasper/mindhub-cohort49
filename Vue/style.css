@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 
-[v-cloak] {
-    display: none;
+[v-cloak]{
+    display: none !important;
 }
+
 
 body{
     background-color: #1b1b1b;
@@ -29,4 +30,9 @@ body{
     height: 50vh !important;
     object-fit: cover;
     object-position: top;
+}
+
+.icon-fav{
+    font-size: 2rem;
+    transform: translate(-10px, 10px);
 }
