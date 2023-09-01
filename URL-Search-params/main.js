@@ -22,20 +22,7 @@ imprimirMaqueta(mentores, container)
 
 console.log(mentores)
 
-let inputTypeSearch = document.getElementById('inputTypeSearch')
-console.log(inputTypeSearch);
 
-inputTypeSearch.addEventListener('keyup', () => {
-    let value = mostrarValorPorConsola(inputTypeSearch)
-    console.log(value);
-    let mentor = mentores.find( mentor => mentor.nombre.startsWith(value))
-    console.log(mentor);
-} )
-
-function mostrarValorPorConsola(input){
-    let valorInputSearch = input.value
-    return valorInputSearch
-}
 
 
 
