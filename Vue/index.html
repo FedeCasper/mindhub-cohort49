@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Workshop de vue para el cohort 49">
+    <link rel="shortcut icon" href="https://mindhubweb.com/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Vue JS - Inicio</title>
+</head>
+<body>
+    <div id="app" class="layout display-none" v-cloak >
+        <header class="d-flex gap-5 justify-content-center align-items-center h-25 py-5 flex-wrap">
+            <nav class="d-flex gap-3">
+                <a class="btn btn-secondary" href="#">Inicio</a>
+                <a class="btn btn-secondary" href="./favoritos.html">Favoritos</a>
+            </nav>
+            <h1 class="text-center w-100">Harry Potter</h1>
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                <div class="col-8">
+                    <input type="text" class="form-control" v-model="valorBusqueda">
+                </div> 
+                <div class="d-flex gap-3 justify-content-center flex-wrap col-10">
+                    <template v-if="casas.length > 0" v-for="casa in casas">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" v-bind:id="casa" v-bind:value="casa" v-model="casasChecked">
+                            <label class="form-check-label" v-bind:for="casa"> {{ casa }} </label>
+                        </div>             
+                    </template>
+                </div>
+            </div>
+            {{ filtrar }}
+        </header>
+        <main class="flex-grow-1">
+            <section class="d-flex gap-5 flex-wrap px-5 justify-content-center align-items-center h-100">
+                <h2 class="text-center w-100" >Personajes</h2>
+                <template v-if="filtrados.length > 0" v-for="personaje of filtrados" >
+                    <article class="card col-10 col-md-5 col-xl-3">
+                        <i v-if="favoritos.some( fav =>  fav.id == personaje.id)" role="button" class="bi bi-heart-fill text-danger icon-fav position-absolute top-0 end-0"  @click="() => handleClick( personaje, 'remover' )"></i>
+                        <i v-else role="button" class="bi bi-heart text-white icon-fav position-absolute top-0 end-0" @click="() => handleClick( personaje, 'agregar' )" ></i>
+                        <img class="card-img-top" v-bind:src="personaje.image || './hogwarts.jpg'" alt="Title">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold"> {{ personaje.name }} </h4>
+                            <p class="card-text"> {{ personaje.house }} </p>
+                        </div>
+                    </article>  
+                </template>
+                <template v-else>
+                    <h2>No hay personajes</h2>
+                </template>
+            </section>
+        </main>
+        <footer>
+           <p class="text-center">cohort 49 workshop vue</p>
+        </footer>
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+
+</body>
+</html>

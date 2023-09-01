@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[v-cloak]{
+    display: none !important;
+}
+
+
+body{
+    background-color: #1b1b1b;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.layout{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 0;
+}
+
+.card-img-top{
+    height: 50vh !important;
+    object-fit: cover;
+    object-position: top;
+}
+
+.icon-fav{
+    font-size: 2rem;
+    transform: translate(-10px, 10px);
+}
