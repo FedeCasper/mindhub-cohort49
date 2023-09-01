@@ -1,39 +1,50 @@
 console.log([window]);
-console.log(location);
-console.log(location.search);
+const parametros = location.search
+console.log(parametros);
 
-let parametro = location.search
-console.log(parametro);
+// Interfaz -> Constructor() que entre otras cosas recibe un string como arg -> retorna un objetos URLSearchParams
+const objetoUrl = new URLSearchParams(parametros)
+console.log(objetoUrl);
 
-let params = new URLSearchParams(parametro)
-console.log(params);
+const nombreMentor = objetoUrl.get('nombre')
+console.log(nombreMentor);
 
-let nombre = params.get('nombre')
-console.log(nombre);
+console.log(mentores)
 
-let mentor = mentores.find( objetoMentor =>  objetoMentor.nombre === nombre)
-console.log(mentor);
+const objetoMentor = mentores.find( objetoMentor => objetoMentor.nombre === nombreMentor )
+console.log(objetoMentor);
 
-let contenedorSection = document.getElementById('contenedor')
+const contenedorSection = document.getElementById('contenedor')
 console.log(contenedorSection);
 
-function crearMaquetaDetalles(elementoHTML, objetoMentor){
-     elementoHTML.innerHTML +=  `
+
+function crearEstructura (objeto){
+     return `
      <div class="card mb-3" style="max-width: 540px;">
-     <div class="row g-0">
-          <div class="col-md-4">
-               <img src="${objetoMentor.imagen}" class="img-fluid rounded-start h-100 object-fit-cover" alt="...">
-          </div>
-          <div class="col-md-8">
-               <div class="card-body">
-                    <h5 class="card-title">${objetoMentor.nombre}</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural
-                         lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">${objetoMentor.edad}</small></p>
+          <div class="row g-0">
+               <div class="col-md-4">
+                    <img src="${objeto.imagen}" class="img-fluid rounded-start h-100 object-fit-cover" alt="...">
+               </div>
+               <div class="col-md-8">
+                    <div class="card-body">
+                         <h5 class="card-title">${objeto.nombre}</h5>
+                         <p class="card-text">This is a wider card with supporting text below as a natural
+                              lead-in to additional content. This content is a little bit longer.</p>
+                         <p class="card-text"><small class="text-body-secondary">${objeto.edad}</small></p>
+                    </div>
                </div>
           </div>
      </div>
-</div>
-     `
+`
 }
-crearMaquetaDetalles(contenedorSection, mentor)
+
+const estructuraString = crearEstructura(objetoMentor)
+console.log(estructuraString);
+
+function renderizaCard (elementoHTML, string){
+     elementoHTML.innerHTML = string
+}
+
+renderizaCard(contenedorSection, estructuraString)
+
+
